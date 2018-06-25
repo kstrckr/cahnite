@@ -1,4 +1,9 @@
-﻿body {
+﻿/*
+font-family: 'Raleway', sans-serif;
+font-family: 'Playfair Display', serif;
+*/
+
+body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
@@ -21,4 +26,12 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+.gsans {
+    font-family: 'Raleway', sans-serif;
+}
+
+.gserif {
+    font-family: 'Playfair Display', serif;
 }

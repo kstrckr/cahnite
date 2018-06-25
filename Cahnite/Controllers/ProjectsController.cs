@@ -14,5 +14,13 @@ namespace Cahnite.Controllers
             return View();
         }
 
+
+        public ActionResult Welcome(string name, int ID = 1)
+        {
+            ViewBag.Message = "Hello " + name;
+            ViewBag.NumTimes = ID;
+
+            return View();
+        }
     }
 }
