@@ -5,14 +5,28 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Projects</h2>
+<div class="container-fluid text-center">
+    <h1>Kurt Strecker</h1>
+    <h3 class="gserif">Creating Solutions with Code</h3>
+</div>
 
-<ul>
-    @foreach (var project in Model)
-    {
-        <li>
-            @Html.DisplayFor(p => project.Title)
-        </li>
-    }
+<div class="container-fluid">
+    
+@foreach (var project in Model)
+{
+    <div class="col-sm-4">
+        <a href="@Url.Action("Details", "Projects", new { ID = project.ID })">
+            <div class="text-center">
+                <p>@Html.DisplayFor(p => project.Title)</p>
+                <div class="text-center">
+                    <img class="img-responsive center-block" src="@Html.DisplayFor(p => project.ImageUrl)" alt="testing-placeholder" />
+                </div>
+            </div>
+        </a>
+        <p class="center-block">@Html.DisplayFor(p => project.Intro)</p>
+    </div>
+}
+    </div>
+</div>
 
-</ul>
+

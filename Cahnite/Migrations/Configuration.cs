@@ -27,7 +27,23 @@ namespace Cahnite.Migrations
                     Title = "Python Data Project",
                     Intro = "Python Data Project Intro",
                     BodyHtml = "<h1>Python Data Project</h1><p>Body Text Here</p>",
-                    ImageUrl = "path-to-image"
+                    ImageUrl = "http://via.placeholder.com/350x150"
+                },
+                new Models.Project()
+                {
+                    ID = 2,
+                    Title = "Commageddon",
+                    Intro = "File name validation script for Saks Photo Studio",
+                    BodyHtml = "<p>Python project parsing CSVs to generate expected file names</p>",
+                    ImageUrl = "http://via.placeholder.com/350x150"
+                },
+                new Models.Project()
+                {
+                    ID = 3,
+                    Title = "MEAN Match Master",
+                    Intro = "A Matching Memory game with server side game logic and persistant high scores",
+                    BodyHtml = "<p>A MEAN stack project</p>",
+                    ImageUrl = "http://via.placeholder.com/350x150"
                 });
         }
     }
