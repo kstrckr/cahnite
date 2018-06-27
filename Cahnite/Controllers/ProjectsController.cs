@@ -1,26 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
+
+using Cahnite.Models;
 
 namespace Cahnite.Controllers
 {
     public class ProjectsController : Controller
     {
+        private ProjectDBContext db = new ProjectDBContext();
+
         // GET: Projects
         public ActionResult Index()
         {
-            return View();
+            return View(db.Projects.ToList());
         }
 
-
-        public ActionResult Welcome(string name, int ID = 1)
+        public ActionResult Details(int? id)
         {
-            ViewBag.Message = "Hello " + name;
-            ViewBag.NumTimes = ID;
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
 
-            return View();
+            Project project = db.Projects.Find(id);
+
+            if (project == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(project);
         }
+
     }
 }

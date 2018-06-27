@@ -1,8 +1,18 @@
-﻿
+﻿@model IEnumerable<Cahnite.Models.Project>
+
 @{
     ViewBag.Title = "Creating Solutions w/ Code";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Projects</h2>
 
+<ul>
+    @foreach (var project in Model)
+    {
+        <li>
+            @Html.DisplayFor(p => project.Title)
+        </li>
+    }
+
+</ul>
