@@ -30,6 +30,17 @@ textarea {
 
 /*Custom styling*/
 
+.navbar { 
+    background-color: #ccc !important; 
+    border-style: none !important;
+}
+
+.navbar-toggle:hover,
+.navbar-toggle:focus {
+    background-color: #ccc !important;
+    border-color: #fff !important;
+}
+
 .gsans {
     font-family: 'Raleway', sans-serif;
 }

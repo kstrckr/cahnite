@@ -11,29 +11,37 @@ namespace Cahnite.Controllers
 {
     public class ProjectsController : Controller
     {
-        private ProjectDBContext db = new ProjectDBContext();
+        //private ProjectDBContext db = new ProjectDBContext();
 
         // GET: Projects
-        public ActionResult Index()
-        {
-            return View(db.Projects.ToList());
-        }
+            public ActionResult Index()
+            {
+                using (ProjectDBContext db = new ProjectDBContext())
+                {
+                    return View(db.Projects.ToList());
+                }
+                
+            }
 
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            using (ProjectDBContext db = new ProjectDBContext())
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+
+                Project project = db.Projects.Find(id);
+
+                if (project == null)
+                {
+                    return HttpNotFound();
+                }
+
+                return View(project);
             }
-
-            Project project = db.Projects.Find(id);
-
-            if (project == null)
-            {
-                return HttpNotFound();
-            }
-
-            return View(project);
+ 
         }
 
     }

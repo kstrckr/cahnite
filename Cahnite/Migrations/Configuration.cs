@@ -44,6 +44,14 @@ namespace Cahnite.Migrations
                     Intro = "A Matching Memory game with server side game logic and persistant high scores",
                     BodyHtml = "<p>A MEAN stack project</p>",
                     ImageUrl = "http://via.placeholder.com/350x150"
+                },
+                new Models.Project()
+                {
+                    ID = 4,
+                    Title = "That DAM Bot",
+                    Intro = "A Bulk download tool for the EvolPhin Digital Asset Management System",
+                    BodyHtml = "<p>Managed and verified the downloading of 12 Terrabytes of photography assets.</p>",
+                    ImageUrl = "http://via.placeholder.com/350x150"
                 });
         }
     }
