@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 
 using Cahnite.Models;
@@ -16,16 +14,26 @@ namespace Cahnite.Controllers
         // GET: Projects
             public ActionResult Index()
             {
-                using (ProjectDBContext db = new ProjectDBContext())
+                using (CahniteContext db = new CahniteContext())
                 {
-                    return View(db.Projects.ToList());
+                    ProjectListViewModel projectList = new ProjectListViewModel
+                    {
+                        Projects = db.Projects.Select(p => new ProjectViewModel
+                        {
+                            ID = p.ID,
+                            Title = p.Title,
+                            Intro = p.Intro,
+                            ImageUrl = p.ImageUrl
+                        }).ToList()
+                    };
+                    return View(projectList);
                 }
                 
             }
 
         public ActionResult ProjectDetail(int? id)
         {
-            using (ProjectDBContext db = new ProjectDBContext())
+            using (CahniteContext db = new CahniteContext())
             {
                 if (id == null)
                 {
@@ -46,7 +54,7 @@ namespace Cahnite.Controllers
 
         public ActionResult ProjectEdit(int? id)
         {
-            using (ProjectDBContext db = new ProjectDBContext())
+            using (CahniteContext db = new CahniteContext())
             {
                 if (id == null)
                 {
@@ -68,7 +76,7 @@ namespace Cahnite.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult ProjectEdit([Bind(Include ="ID, Title, Intro, BodyHtml, ImageUrl, Favorite")] Project project)
         {
-            using (ProjectDBContext db = new ProjectDBContext())
+            using (CahniteContext db = new CahniteContext())
             {
                 if (ModelState.IsValid)
                 {

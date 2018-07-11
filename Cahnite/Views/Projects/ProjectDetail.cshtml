@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    HtmlString myHtmlString = new HtmlString(Model.BodyHtml);
 }
 
 <h2>Details</h2>
@@ -32,7 +33,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.BodyHtml)
+            @myHtmlString
         </dd>
 
         <dt>

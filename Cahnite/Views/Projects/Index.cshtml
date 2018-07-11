@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Cahnite.Models.Project>
+﻿@model Cahnite.Models.ProjectListViewModel
 
 @{
     ViewBag.Title = "Creating Solutions w/ Code";
@@ -14,7 +14,7 @@
 
 <div class="container-fluid">
     
-@foreach (var project in Model)
+@foreach (var project in Model.Projects)
 {
     <div class="col-sm-4">
         <a  href="@Url.Action("ProjectDetail", "Projects", new { ID = project.ID })">
