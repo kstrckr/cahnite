@@ -17,7 +17,7 @@
 @foreach (var project in Model)
 {
     <div class="col-sm-4">
-        <a  href="@Url.Action("Details", "Projects", new { ID = project.ID })">
+        <a  href="@Url.Action("ProjectDetail", "Projects", new { ID = project.ID })">
             <div class="text-center">
                 <p>@Html.DisplayFor(p => project.Title)</p>
                 <div class="text-center">

@@ -11,8 +11,7 @@ namespace Cahnite.Controllers
 {
     public class ProjectsController : Controller
     {
-        //private ProjectDBContext db = new ProjectDBContext();
-
+        
         // GET: Projects
             public ActionResult Index()
             {
@@ -23,7 +22,7 @@ namespace Cahnite.Controllers
                 
             }
 
-        public ActionResult Details(int? id)
+        public ActionResult ProjectDetail(int? id)
         {
             using (ProjectDBContext db = new ProjectDBContext())
             {
@@ -42,6 +41,14 @@ namespace Cahnite.Controllers
                 return View(project);
             }
  
+        }
+
+        public ActionResult ProjectEdit(int? id)
+        {
+            using (ProjectDBContext db = new ProjectDBContext())
+            {
+
+            }
         }
 
     }
