@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -63,5 +64,21 @@ namespace Cahnite.Controllers
             }
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ProjectEdit([Bind(Include ="ID, Title, Intro, BodyHtml, ImageUrl, Favorite")] Project project)
+        {
+            using (ProjectDBContext db = new ProjectDBContext())
+            {
+                if (ModelState.IsValid)
+                {
+                    db.Entry(project).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                return View(project);
+            }
+
+        }
     }
 }

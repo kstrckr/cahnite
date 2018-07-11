@@ -166,6 +166,10 @@
     <Compile Include="Migrations\201806270236566_Initial.Designer.cs">
       <DependentUpon>201806270236566_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807110257553_allowedHtml.cs" />
+    <Compile Include="Migrations\201807110257553_allowedHtml.Designer.cs">
+      <DependentUpon>201807110257553_allowedHtml.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -234,6 +238,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806270236566_Initial.resx">
       <DependentUpon>201806270236566_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807110257553_allowedHtml.resx">
+      <DependentUpon>201807110257553_allowedHtml.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
