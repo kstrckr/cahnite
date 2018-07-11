@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
@@ -11,11 +10,12 @@ namespace Cahnite.Controllers
     public class ProjectsController : Controller
     {
         
-        // GET: Projects
+     // GET: Project List/INDEX
             public ActionResult Index()
             {
                 using (CahniteContext db = new CahniteContext())
                 {
+                    // Creats the ListView of ProjectView models
                     ProjectListViewModel projectList = new ProjectListViewModel
                     {
                         Projects = db.Projects.Select(p => new ProjectViewModel
@@ -31,6 +31,7 @@ namespace Cahnite.Controllers
                 
             }
 
+    //  GET: Project Detail
         public ActionResult ProjectDetail(int? id)
         {
             using (CahniteContext db = new CahniteContext())
@@ -52,6 +53,7 @@ namespace Cahnite.Controllers
  
         }
 
+    // GET: Project Edit
         public ActionResult ProjectEdit(int? id)
         {
             using (CahniteContext db = new CahniteContext())
@@ -72,6 +74,7 @@ namespace Cahnite.Controllers
             }
         }
 
+    // POST: Project Edit Post
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult ProjectEdit([Bind(Include ="ID, Title, Intro, BodyHtml, ImageUrl, Favorite")] Project project)
