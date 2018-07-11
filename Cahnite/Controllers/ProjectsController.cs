@@ -47,7 +47,19 @@ namespace Cahnite.Controllers
         {
             using (ProjectDBContext db = new ProjectDBContext())
             {
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
 
+                Project project = db.Projects.Find(id);
+
+                if (project == null)
+                {
+                    return HttpNotFound();
+                }
+
+                return View(project);
             }
         }
 
