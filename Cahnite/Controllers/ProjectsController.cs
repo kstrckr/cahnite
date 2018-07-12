@@ -75,21 +75,66 @@ namespace Cahnite.Controllers
         }
 
     // POST: Project Edit Post
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult ProjectEdit([Bind(Include ="ID, Title, Intro, BodyHtml, ImageUrl, Favorite")] Project project)
+        //{
+        //    using (CahniteContext db = new CahniteContext())
+        //    {
+        //        if (ModelState.IsValid)
+        //        {
+        //            db.Entry(project).State = EntityState.Modified;
+        //            db.SaveChanges();
+        //            return RedirectToAction("Index");
+        //        }
+        //        return View(project);
+        //    }
+
+        //}
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult ProjectEdit(ProjectViewModel projectViewModel)
+        //{
+        //    using (CahniteContext db = new CahniteContext())
+        //    {
+        //        Project project = db.Projects.Single(p => p.ID == projectViewModel.ID);
+
+        //        if (project != null)
+        //        {
+        //            project.Title = projectViewModel.Title;
+        //            project.Intro = projectViewModel.Intro;
+        //            project.BodyHtml = projectViewModel.ImageUrl;
+
+        //            db.SaveChanges();
+
+        //            return RedirectToAction("Index");
+        //        }
+        //    }
+
+        //    return new HttpNotFoundResult();
+        //}
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult ProjectEdit([Bind(Include ="ID, Title, Intro, BodyHtml, ImageUrl, Favorite")] Project project)
+        public ActionResult ProjectDelete(ProjectViewModel projectViewModel)
         {
             using (CahniteContext db = new CahniteContext())
             {
-                if (ModelState.IsValid)
+                Project project = db.Projects.SingleOrDefault(p => p.ID == projectViewModel.ID);
+                
+                if (project != null)
                 {
-                    db.Entry(project).State = EntityState.Modified;
+                    db.Projects.Remove(project);
                     db.SaveChanges();
+
                     return RedirectToAction("Index");
                 }
-                return View(project);
-            }
 
+
+                return new HttpNotFoundResult();
+            }
+            
         }
     }
 }

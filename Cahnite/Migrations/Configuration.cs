@@ -26,7 +26,7 @@ namespace Cahnite.Migrations
                     ID = 1,
                     Title = "Python Data Project",
                     Intro = "Python Data Project Intro",
-                    BodyHtml = "<b>Python Data Project</h1><p>Body Text Here</b>",
+                    BodyHtml = "<b>Python Data Project Body Text Here</b>",
                     ImageUrl = "http://via.placeholder.com/350x150"
                 },
                 new Models.Project()
