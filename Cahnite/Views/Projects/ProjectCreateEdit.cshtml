@@ -34,7 +34,7 @@
 }
 
 
-@using (Html.BeginForm("ProjectCreateEdit", "Projects"))
+@using (Html.BeginForm("ProjectCreateEdit", "Projects", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
 
