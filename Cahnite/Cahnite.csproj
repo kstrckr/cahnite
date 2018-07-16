@@ -170,6 +170,18 @@
     <Compile Include="Migrations\201807110257553_allowedHtml.Designer.cs">
       <DependentUpon>201807110257553_allowedHtml.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807160318130_redo.cs" />
+    <Compile Include="Migrations\201807160318130_redo.Designer.cs">
+      <DependentUpon>201807160318130_redo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807160331340_drop-th-tabl.cs" />
+    <Compile Include="Migrations\201807160331340_drop-th-tabl.Designer.cs">
+      <DependentUpon>201807160331340_drop-th-tabl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807160334462_deleted-data.cs" />
+    <Compile Include="Migrations\201807160334462_deleted-data.Designer.cs">
+      <DependentUpon>201807160334462_deleted-data.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Project.cs" />
     <Compile Include="Models\ProjectListViewModel.cs" />
@@ -222,6 +234,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807110257553_allowedHtml.resx">
       <DependentUpon>201807110257553_allowedHtml.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807160318130_redo.resx">
+      <DependentUpon>201807160318130_redo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807160331340_drop-th-tabl.resx">
+      <DependentUpon>201807160331340_drop-th-tabl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807160334462_deleted-data.resx">
+      <DependentUpon>201807160334462_deleted-data.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

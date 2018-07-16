@@ -109,15 +109,37 @@ namespace Cahnite.Controllers
         {
             using (CahniteContext db = new CahniteContext())
             {
-                Project project = db.Projects.Single(p => p.ID == projectViewModel.ID);
+                Project project = null;
+
+                if (projectViewModel.ID <= 0)
+                {
+                    project = new Project();                    
+                }
+                else
+                {
+                    project = db.Projects.Single(p => p.ID == projectViewModel.ID);
+                }
+                
 
                 if (project != null)
                 {
+
                     project.Title = projectViewModel.Title;
                     project.Intro = projectViewModel.Intro;
-                    project.BodyHtml = projectViewModel.ImageUrl;
+                    project.BodyHtml = projectViewModel.BodyHtml;
+                    project.ImageUrl = projectViewModel.ImageUrl;
+                    project.Favorite = projectViewModel.Favorite;
 
-                    db.SaveChanges();
+                    if (project.ID != 0)
+                    {
+                        db.SaveChanges();
+                    }
+                    else
+                    {
+                        db.Projects.Add(project);
+                        db.SaveChanges();
+                    }
+                    
 
                     return RedirectToAction("Index");
                 }

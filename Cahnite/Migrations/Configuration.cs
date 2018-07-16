@@ -1,9 +1,7 @@
+using System.Data.Entity.Migrations;
+
 namespace Cahnite.Migrations
 {
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
 
     internal sealed class Configuration : DbMigrationsConfiguration<CahniteContext>
     {
@@ -20,8 +18,8 @@ namespace Cahnite.Migrations
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
 
-            context.Projects.AddOrUpdate(p => p.ID,
-                new Models.Project()
+            context.Projects.AddOrUpdate(p => p.Title,
+                new Models.Project
                 {
                     ID = 1,
                     Title = "Python Data Project",
@@ -29,7 +27,7 @@ namespace Cahnite.Migrations
                     BodyHtml = "<b>Python Data Project Body Text Here</b>",
                     ImageUrl = "http://via.placeholder.com/350x150"
                 },
-                new Models.Project()
+                new Models.Project
                 {
                     ID = 2,
                     Title = "Commageddon",
@@ -37,7 +35,7 @@ namespace Cahnite.Migrations
                     BodyHtml = "<b>Python project parsing CSVs to generate expected file names</b>",
                     ImageUrl = "http://via.placeholder.com/350x150"
                 },
-                new Models.Project()
+                new Models.Project
                 {
                     ID = 3,
                     Title = "MEAN Match Master",
@@ -45,7 +43,7 @@ namespace Cahnite.Migrations
                     BodyHtml = "<b>A MEAN stack project</b>",
                     ImageUrl = "http://via.placeholder.com/350x150"
                 },
-                new Models.Project()
+                new Models.Project
                 {
                     ID = 4,
                     Title = "That DAM Bot",
@@ -53,6 +51,7 @@ namespace Cahnite.Migrations
                     BodyHtml = "<b>Managed and verified the downloading of 12 Terrabytes of photography assets.</b>",
                     ImageUrl = "http://via.placeholder.com/350x150"
                 });
+
         }
     }
 }
