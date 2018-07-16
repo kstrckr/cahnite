@@ -1,29 +1,40 @@
 ﻿@model Cahnite.Models.Project
 
 @{
-    ViewBag.Title = "Edit";
+
     Layout = "~/Views/Shared/_Layout.cshtml";
 
-    if (Model == null)
+    if (Model.ID == 0)
     {
-
+        ViewBag.Title = "Create";
+        ViewBag.header = "Create";
+        ViewBag.deleteButton = false;
+    }
+    else
+    {
+        ViewBag.Title = "Edit";
+        ViewBag.header = "Edit/Delete";
+        ViewBag.deleteButton = true;
     }
 }
 
-<h2>Edit/Delete @Model.Title</h2>
+<h2>@ViewBag.header @Model.Title</h2>
 
-@using (Html.BeginForm("ProjectDelete", "Projects"))
+@if (ViewBag.deleteButton == true)
 {
-    <div class="form-horizontal text-right">
-        @Html.AntiForgeryToken()
-        @Html.HiddenFor(model => model.ID)
-        <button type="submit" class="btn btn-danger">Delete</button>
-    </div>
-
-
+    using (Html.BeginForm("ProjectDelete", "Projects"))
+    {
+        <div class="form-horizontal text-right">
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(model => model.ID)
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </div>
+        
+    }
 }
 
-@using (Html.BeginForm())
+
+@using (Html.BeginForm("ProjectCreateEdit", "Projects"))
 {
     @Html.AntiForgeryToken()
 
@@ -77,7 +88,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Submit" class="btn btn-default" />
             </div>
 
 

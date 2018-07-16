@@ -56,7 +56,11 @@ namespace Cahnite.Controllers
     // GET: Project Create
         public ActionResult ProjectCreate()
         {
-            return View("ProjectEdit", new Project());
+            Project blankProject = new Project();
+
+            blankProject.Title = "Blank Project";
+
+            return View("ProjectCreateEdit", blankProject);
         }
 
     // GET: Project Edit
@@ -76,7 +80,7 @@ namespace Cahnite.Controllers
                     return HttpNotFound();
                 }
 
-                return View(project);
+                return View("ProjectCreateEdit", project);
             }
         }
 
@@ -101,7 +105,7 @@ namespace Cahnite.Controllers
     // POST: Project Edit Post - alternate version
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult ProjectEdit(ProjectViewModel projectViewModel)
+        public ActionResult ProjectCreateEdit(ProjectViewModel projectViewModel)
         {
             using (CahniteContext db = new CahniteContext())
             {

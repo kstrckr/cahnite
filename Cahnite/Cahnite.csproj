@@ -199,7 +199,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Projects\Index.cshtml" />
     <Content Include="Views\Projects\ProjectDetail.cshtml" />
-    <Content Include="Views\Projects\ProjectEdit.cshtml" />
+    <Content Include="Views\Projects\ProjectCreateEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
