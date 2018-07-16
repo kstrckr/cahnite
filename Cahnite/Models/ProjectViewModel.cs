@@ -1,7 +1,4 @@
-﻿using System.Data.Entity;
-
-
-
+﻿
 namespace Cahnite.Models
 {
     public class ProjectViewModel

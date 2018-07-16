@@ -1,4 +1,4 @@
-﻿using System.Data.Entity;
+﻿
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
@@ -43,12 +43,22 @@ namespace Cahnite.Controllers
 
                 Project project = db.Projects.Find(id);
 
-                if (project == null)
+                if (project != null)
                 {
-                    return HttpNotFound();
+                    ProjectViewModel projectViewModel = new ProjectViewModel
+                    {
+                        ID = project.ID,
+                        Title = project.Title,
+                        Intro = project.Intro,
+                        ImageUrl = project.ImageUrl,
+                        BodyHtml = project.BodyHtml,
+                        Favorite = project.Favorite
+                    };
+
+                    return View(projectViewModel);                    
                 }
 
-                return View(project);
+                return HttpNotFound();
             }
  
         }
@@ -56,9 +66,10 @@ namespace Cahnite.Controllers
     // GET: Project Create
         public ActionResult ProjectCreate()
         {
-            Project blankProject = new Project();
+            ProjectViewModel blankProject = new ProjectViewModel();
 
-            blankProject.Title = "Blank Project";
+            blankProject.Title = "New Project";
+            blankProject.ImageUrl = "http://via.placeholder.com/350x150";
 
             return View("ProjectCreateEdit", blankProject);
         }
@@ -75,12 +86,23 @@ namespace Cahnite.Controllers
 
                 Project project = db.Projects.Find(id);
 
-                if (project == null)
+                if (project != null)
                 {
-                    return HttpNotFound();
+                    ProjectViewModel projectViewModel = new ProjectViewModel
+                    {
+                        ID = project.ID,
+                        Title = project.Title,
+                        Intro = project.Intro,
+                        ImageUrl = project.ImageUrl,
+                        BodyHtml = project.BodyHtml,
+                        Favorite = project.Favorite
+                    };
+
+                    return View("ProjectCreateEdit", projectViewModel);
+                                        
                 }
 
-                return View("ProjectCreateEdit", project);
+                return HttpNotFound();
             }
         }
 
@@ -102,14 +124,14 @@ namespace Cahnite.Controllers
 
         //}
 
-    // POST: Project Edit Post - alternate version
+    // POST: Project Edit/Create - alternate version
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult ProjectCreateEdit(ProjectViewModel projectViewModel)
         {
             using (CahniteContext db = new CahniteContext())
             {
-                Project project = null;
+                Project project;
 
                 if (projectViewModel.ID <= 0)
                 {
