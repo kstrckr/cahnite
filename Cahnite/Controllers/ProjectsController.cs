@@ -53,6 +53,8 @@ namespace Cahnite.Controllers
  
         }
 
+
+
     // GET: Project Edit
         public ActionResult ProjectEdit(int? id)
         {
@@ -74,7 +76,7 @@ namespace Cahnite.Controllers
             }
         }
 
-    // POST: Project Edit Post
+        // POST: Project Edit Post
         //[HttpPost]
         //[ValidateAntiForgeryToken]
         //public ActionResult ProjectEdit([Bind(Include ="ID, Title, Intro, BodyHtml, ImageUrl, Favorite")] Project project)
@@ -92,28 +94,29 @@ namespace Cahnite.Controllers
 
         //}
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult ProjectEdit(ProjectViewModel projectViewModel)
-        //{
-        //    using (CahniteContext db = new CahniteContext())
-        //    {
-        //        Project project = db.Projects.Single(p => p.ID == projectViewModel.ID);
+    // POST: Project Edit Post - alternate version
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ProjectEdit(ProjectViewModel projectViewModel)
+        {
+            using (CahniteContext db = new CahniteContext())
+            {
+                Project project = db.Projects.Single(p => p.ID == projectViewModel.ID);
 
-        //        if (project != null)
-        //        {
-        //            project.Title = projectViewModel.Title;
-        //            project.Intro = projectViewModel.Intro;
-        //            project.BodyHtml = projectViewModel.ImageUrl;
+                if (project != null)
+                {
+                    project.Title = projectViewModel.Title;
+                    project.Intro = projectViewModel.Intro;
+                    project.BodyHtml = projectViewModel.ImageUrl;
 
-        //            db.SaveChanges();
+                    db.SaveChanges();
 
-        //            return RedirectToAction("Index");
-        //        }
-        //    }
+                    return RedirectToAction("Index");
+                }
+            }
 
-        //    return new HttpNotFoundResult();
-        //}
+            return new HttpNotFoundResult();
+        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
