@@ -53,7 +53,11 @@ namespace Cahnite.Controllers
  
         }
 
-
+    // GET: Project Create
+        public ActionResult ProjectCreate()
+        {
+            return View("ProjectEdit", new Project());
+        }
 
     // GET: Project Edit
         public ActionResult ProjectEdit(int? id)
