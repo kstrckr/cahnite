@@ -189,6 +189,10 @@
     <Compile Include="Migrations\201807181749299_moved required to ViewModel.Designer.cs">
       <DependentUpon>201807181749299_moved required to ViewModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807181952542_added required to str cols.cs" />
+    <Compile Include="Migrations\201807181952542_added required to str cols.Designer.cs">
+      <DependentUpon>201807181952542_added required to str cols.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Project.cs" />
     <Compile Include="Models\ProjectListViewModel.cs" />
@@ -250,6 +254,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807181749299_moved required to ViewModel.resx">
       <DependentUpon>201807181749299_moved required to ViewModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807181952542_added required to str cols.resx">
+      <DependentUpon>201807181952542_added required to str cols.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
