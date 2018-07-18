@@ -9,31 +9,32 @@
     <h1>Kurt Strecker</h1>
     <h2 class="gserif">Creating Solutions with Code</h2>
     <h4>502-468-7387 | kurt@kurtstrecker.io</h4>
-    <hr />
-</div>
 
+</div>
+<hr />
 <div class="new-button text-center">
     <a href="@Url.Action("ProjectCreate", "Projects")">Create New Project</a>
-    <hr />
+
 </div>
+<hr />
 
 <div class="container-fluid">
-    
-@foreach (var project in Model.Projects)
-{
-    <div class="col-sm-4">
-        <a  href="@Url.Action("ProjectDetail", "Projects", new { ID = project.ID })">
-            <div class="text-center">
-                <p>@Html.DisplayFor(p => project.Title)</p>
+
+    @foreach (var project in Model.Projects)
+    {
+        <div class="col-sm-4">
+            <a href="@Url.Action("ProjectDetail", "Projects", new { ID = project.ID })">
                 <div class="text-center">
-                    <img class="img-responsive center-block" src="@Html.DisplayFor(p => project.ImageUrl)" alt="testing-placeholder" />
+                    <p>@Html.DisplayFor(p => project.Title)</p>
+                    <div class="text-center">
+                        <img class="img-responsive center-block" src="@Html.DisplayFor(p => project.ImageUrl)" alt="testing-placeholder" />
+                    </div>
                 </div>
-            </div>
-        </a>
-        <p class="center-block text-center">@Html.DisplayFor(p => project.Intro)</p>
-    </div>
-}
-    </div>
+            </a>
+            <p class="center-block text-center">@Html.DisplayFor(p => project.Intro)</p>
+        </div>
+    }
+</div>
 
 
 

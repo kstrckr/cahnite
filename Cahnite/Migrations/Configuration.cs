@@ -18,7 +18,7 @@ namespace Cahnite.Migrations
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
 
-            string placeholderImgLink = "http://via.placeholder.com/350x150";
+            string placeholderImgLink = "http://via.placeholder.com/350x350";
 
             context.Projects.AddOrUpdate(p => p.Title,
                 new Models.Project
