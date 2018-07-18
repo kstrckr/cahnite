@@ -181,6 +181,14 @@
     <Compile Include="Migrations\201807160334462_deleted-data.Designer.cs">
       <DependentUpon>201807160334462_deleted-data.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807181625288_required values.cs" />
+    <Compile Include="Migrations\201807181625288_required values.Designer.cs">
+      <DependentUpon>201807181625288_required values.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807181749299_moved required to ViewModel.cs" />
+    <Compile Include="Migrations\201807181749299_moved required to ViewModel.Designer.cs">
+      <DependentUpon>201807181749299_moved required to ViewModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Project.cs" />
     <Compile Include="Models\ProjectListViewModel.cs" />
@@ -236,6 +244,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807160334462_deleted-data.resx">
       <DependentUpon>201807160334462_deleted-data.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807181625288_required values.resx">
+      <DependentUpon>201807181625288_required values.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807181749299_moved required to ViewModel.resx">
+      <DependentUpon>201807181749299_moved required to ViewModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

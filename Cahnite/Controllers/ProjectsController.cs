@@ -152,18 +152,25 @@ namespace Cahnite.Controllers
                     project.ImageUrl = projectViewModel.ImageUrl;
                     project.Favorite = projectViewModel.Favorite;
 
-                    if (project.ID != 0)
+                    if (ModelState.IsValid)
                     {
-                        db.SaveChanges();
-                    }
-                    else
-                    {
-                        db.Projects.Add(project);
-                        db.SaveChanges();
-                    }
-                    
+                        if (project.ID != 0)
+                        {
 
-                    return RedirectToAction("Index");
+                            db.SaveChanges();
+                        }
+                        else
+                        {
+                            db.Projects.Add(project);
+                            db.SaveChanges();
+                        }
+
+
+                        return RedirectToAction("Index");
+                    }
+
+                    return View(projectViewModel);
+                        
                 }
             }
 

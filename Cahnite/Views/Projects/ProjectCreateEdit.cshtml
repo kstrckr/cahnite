@@ -29,12 +29,12 @@
             @Html.HiddenFor(model => model.ID)
             <button type="submit" class="btn btn-danger">Delete</button>
         </div>
-        
+
     }
 }
 
 
-@using (Html.BeginForm("ProjectCreateEdit", "Projects", FormMethod.Post))
+@using (Html.BeginForm("ProjectCreateEdit", "Projects", FormMethod.Post, new { @id = "projectForm" }))
 {
     @Html.AntiForgeryToken()
 
@@ -98,6 +98,13 @@
 
 
 
+
+
+<script>
+    window.onload = function () {
+        $("#projectForm").validate();
+    }
+</script>
 
 
 <div>
