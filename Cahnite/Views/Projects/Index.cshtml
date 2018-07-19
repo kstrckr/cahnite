@@ -25,13 +25,13 @@
         <div class="col-sm-4">
             <a href="@Url.Action("ProjectDetail", "Projects", new { ID = project.ID })">
                 <div class="text-center">
-                    <p>@Html.DisplayFor(p => project.Title)</p>
+                    <p>@project.Title</p>
                     <div class="text-center">
-                        <img class="img-responsive center-block" src="@Html.DisplayFor(p => project.ImageUrl)" alt="testing-placeholder" />
+                        <img class="img-responsive center-block" src="@project.ImageUrl" alt="testing-placeholder" />
                     </div>
                 </div>
             </a>
-            <p class="center-block text-center">@Html.DisplayFor(p => project.Intro)</p>
+            <p class="center-block text-center">@project.Intro</p>
         </div>
     }
 </div>
