@@ -68,7 +68,7 @@ namespace Cahnite.Controllers
             ProjectViewModel blankProject = new ProjectViewModel();
 
             blankProject.Title = "New Project";
-            blankProject.ImageUrl = "http://via.placeholder.com/350x150";
+            blankProject.ImageUrl = "http://via.placeholder.com/350x350";
 
             return View("ProjectCreateEdit", blankProject);
         }
