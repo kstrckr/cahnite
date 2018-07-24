@@ -241,6 +241,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Views\Projects\Unpublished.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201806270217408_InitialCreate.resx">

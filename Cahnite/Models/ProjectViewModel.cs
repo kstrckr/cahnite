@@ -18,6 +18,8 @@ namespace Cahnite.Models
         [Required]
         public bool Favorite { get; set; }
         [Required]
-        public bool Republish { get; set; }
+        public bool RePublish { get; set; }
+        [Required]
+        public bool Publish { get; set; }
     }
 }

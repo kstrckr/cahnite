@@ -12,40 +12,63 @@ namespace Cahnite.Controllers
     {
         
      // GET: Project List/INDEX
-            public ActionResult Index()
+        public ActionResult Index()
+        {
+            using (CahniteContext db = new CahniteContext())
             {
-                using (CahniteContext db = new CahniteContext())
+            // Creats the ListView of ProjectView models
+            //ProjectListViewModel projectList = new ProjectListViewModel
+            //{
+            //    Projects = db.Projects.Select(p => new ProjectViewModel
+            //    {
+            //        ID = p.ID,
+            //        Title = p.Title,
+            //        Intro = p.Intro,
+            //        ImageUrl = p.ImageUrl
+            //    }).ToList()
+
+            //};
+
+                IQueryable<Project> publishedProjectList = db.Projects.Where(p => p.Publish == true);
+
+                ProjectListViewModel projectList = new ProjectListViewModel
                 {
-                // Creats the ListView of ProjectView models
-                //ProjectListViewModel projectList = new ProjectListViewModel
-                //{
-                //    Projects = db.Projects.Select(p => new ProjectViewModel
-                //    {
-                //        ID = p.ID,
-                //        Title = p.Title,
-                //        Intro = p.Intro,
-                //        ImageUrl = p.ImageUrl
-                //    }).ToList()
-
-                //};
-
-                    IQueryable<Project> publishedProjectList = db.Projects.Where(p => p.Publish == true);
-
-                    ProjectListViewModel projectList = new ProjectListViewModel
+                    Projects = publishedProjectList.Select(p => new ProjectViewModel
                     {
-                        Projects = publishedProjectList.Select(p => new ProjectViewModel
-                        {
-                            ID = p.ID,
-                            Title = p.Title,
-                            Intro = p.Intro,
-                            ImageUrl = p.ImageUrl
-                        }).ToList()
-                    };
+                        ID = p.ID,
+                        Title = p.Title,
+                        Intro = p.Intro,
+                        ImageUrl = p.ImageUrl
+                    }).ToList()
+                };
 
-                    return View(projectList);
-                }
-                
+                return View(projectList);
             }
+                
+        }
+
+        public ActionResult Unpublished()
+        {
+            using (CahniteContext db = new CahniteContext())
+            {
+
+                IQueryable<Project> publishedProjectList = db.Projects.Where(p => p.Publish == false);
+
+                ProjectListViewModel projectList = new ProjectListViewModel
+                {
+                    Projects = publishedProjectList.Select(p => new ProjectViewModel
+                    {
+                        ID = p.ID,
+                        Title = p.Title,
+                        Intro = p.Intro,
+                        ImageUrl = p.ImageUrl
+                    }).ToList()
+                };
+
+                return View(projectList);
+            }
+        }
+
 
     //  GET: Project Detail
         public ActionResult ProjectDetail(int? id)
@@ -111,7 +134,8 @@ namespace Cahnite.Controllers
                         Intro = project.Intro,
                         ImageUrl = project.ImageUrl,
                         BodyHtml = project.BodyHtml,
-                        Favorite = project.Favorite
+                        Favorite = project.Favorite,
+                        Publish = project.Publish
                     };
 
                     return View("ProjectCreateEdit", projectViewModel);
@@ -151,9 +175,11 @@ namespace Cahnite.Controllers
 
                 if (projectViewModel.ID <= 0)
                 {
-                    project = new Project();
-                    project.CreatedOn = DateTime.Now;
-                    project.EditedOn = DateTime.Now;
+                    project = new Project
+                    {
+                        CreatedOn = DateTime.Now,
+                        EditedOn = DateTime.Now
+                    };
                 }
                 else
                 {
@@ -168,9 +194,10 @@ namespace Cahnite.Controllers
                     project.BodyHtml = projectViewModel.BodyHtml;
                     project.ImageUrl = projectViewModel.ImageUrl;
                     project.Favorite = projectViewModel.Favorite;
+                    project.Publish = projectViewModel.Publish;
                     project.EditedOn = DateTime.Now;
 
-                    if (projectViewModel.Republish)
+                    if (projectViewModel.RePublish)
                     {
                         project.CreatedOn = DateTime.Now;
                     }

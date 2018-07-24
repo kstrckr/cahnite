@@ -29,8 +29,8 @@ namespace Cahnite.Migrations
                     BodyHtml = "<h1>Parsing, creating a database for, and analyzing 13 Million sales records</h1>",
                     ImageUrl = placeholderImgLink,
                     Publish = true,
-                    CreatedOn = DateTime.Now.Subtract(new TimeSpan(-7, 0, 0, 0)),
-                    EditedOn = DateTime.Now.Subtract(new TimeSpan(-3, 0, 0, 0))
+                    CreatedOn = DateTime.Now.Subtract(new TimeSpan(7, 0, 0, 0)),
+                    EditedOn = DateTime.Now.Subtract(new TimeSpan(3, 0, 0, 0))
                 },
                 new Models.Project
                 {
@@ -39,8 +39,8 @@ namespace Cahnite.Migrations
                     BodyHtml = "<b>Python project parsing CSVs to generate expected file names</b>",
                     ImageUrl = placeholderImgLink,
                     Publish = true,
-                    CreatedOn = DateTime.Now.Subtract(new TimeSpan(-6, 0, 0, 0)),
-                    EditedOn = DateTime.Now.Subtract(new TimeSpan(-4, 0, 0, 0))
+                    CreatedOn = DateTime.Now.Subtract(new TimeSpan(6, 0, 0, 0)),
+                    EditedOn = DateTime.Now.Subtract(new TimeSpan(4, 0, 0, 0))
                 },
                 new Models.Project
                 {
@@ -49,8 +49,8 @@ namespace Cahnite.Migrations
                     BodyHtml = "<b>A MEAN stack project</b>",
                     ImageUrl = placeholderImgLink,
                     Publish = true,
-                    CreatedOn = DateTime.Now.Subtract(new TimeSpan(-5, 0, 0, 0)),
-                    EditedOn = DateTime.Now.Subtract(new TimeSpan(-2, 0, 0, 0))
+                    CreatedOn = DateTime.Now.Subtract(new TimeSpan(5, 0, 0, 0)),
+                    EditedOn = DateTime.Now.Subtract(new TimeSpan(2, 0, 0, 0))
                 },
                 new Models.Project
                 {
@@ -59,8 +59,8 @@ namespace Cahnite.Migrations
                     BodyHtml = "<b>Managed and verified the downloading of 12 Terrabytes of photography assets.</b>",
                     ImageUrl = placeholderImgLink,
                     Publish = true,
-                    CreatedOn = DateTime.Now.Subtract(new TimeSpan(-4, 0, 0, 0)),
-                    EditedOn = DateTime.Now.Subtract(new TimeSpan(-1, 0, 0, 0))
+                    CreatedOn = DateTime.Now.Subtract(new TimeSpan(4, 0, 0, 0)),
+                    EditedOn = DateTime.Now.Subtract(new TimeSpan(1, 0, 0, 0))
                 });
 
         }

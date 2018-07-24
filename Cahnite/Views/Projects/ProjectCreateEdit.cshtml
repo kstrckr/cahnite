@@ -8,21 +8,20 @@
     {
         ViewBag.Title = "Create";
         ViewBag.header = "Create";
-        ViewBag.deleteButton = false;
-        ViewBag.republishCheckBox = false;
+        ViewBag.edit = false;
+        
     }
     else
     {
         ViewBag.Title = "Edit";
         ViewBag.header = "Edit/Delete";
-        ViewBag.deleteButton = true;
-        ViewBag.republishCheckBox = true;
+        ViewBag.edit = true;
     }
 }
 
 <h2>@ViewBag.header @Model.Title</h2>
 
-@if (ViewBag.deleteButton == true)
+@if (ViewBag.edit == true)
 {
     using (Html.BeginForm("ProjectDelete", "Projects"))
     {
@@ -88,18 +87,30 @@
                 </div>
             </div>
 
-            @if (ViewBag.republishCheckBox == true)
+            @if (ViewBag.edit == true && Model.Publish == true)
             {
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Republish, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.LabelFor(model => model.RePublish, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         <div class="checkbox">
-                            @Html.EditorFor(model => model.Republish)
-                            @Html.ValidationMessageFor(model => model.Republish, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model.RePublish)
+                            @Html.ValidationMessageFor(model => model.RePublish, "", new { @class = "text-danger" })
                         </div>
                     </div>
                 </div>
             }
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Publish, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.Publish)
+                            @Html.ValidationMessageFor(model => model.Publish, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">

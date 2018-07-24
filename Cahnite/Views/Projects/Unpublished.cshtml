@@ -1,21 +1,20 @@
 ﻿@model Cahnite.Models.ProjectListViewModel
 
 @{
-    ViewBag.Title = "Creating Solutions w/ Code";
+    ViewBag.Title = "Edit/Publish Unpublished Posts";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="container-fluid text-center">
-    <h1>Kurt Strecker</h1>
-    <h2 class="gserif">Creating Solutions with Code</h2>
-    <h4>502-468-7387 | kurt@kurtstrecker.io</h4>
+
+    <h4>Edit and/or Publish Non-published Posts</h4>
 
 </div>
 <hr />
 <div class="new-button text-center">
     <a href="@Url.Action("ProjectCreate", "Projects")">Create New Project</a>
      | 
-    <a href="@Url.Action("Unpublished", "Projects")">Unpublished Projects</a>
+    <a href="@Url.Action("Index", "Projects")">Back to Index</a>
 </div>
 <hr />
 
@@ -24,7 +23,7 @@
     @foreach (var project in Model.Projects)
     {
         <div class="col-sm-4">
-            <a href="@Url.Action("ProjectDetail", "Projects", new { ID = project.ID })">
+            <a href="@Url.Action("ProjectEdit", "Projects", new { ID = project.ID })">
                 <div class="text-center">
                     <p>@project.Title</p>
                     <div class="text-center">
