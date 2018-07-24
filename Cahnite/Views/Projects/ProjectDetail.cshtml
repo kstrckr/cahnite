@@ -6,55 +6,75 @@
     HtmlString bodyHtml = new HtmlString(Model.BodyHtml);
 }
 
-<h2>Details</h2>
+@*<div>
+        <h4>Project</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
 
-<div>
-    <h4>Project</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Title)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Intro)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Intro)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Intro)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Intro)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.BodyHtml)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.BodyHtml)
-        </dt>
+            <dd>
+                @bodyHtml
+            </dd>
 
-        <dd>
-            @bodyHtml
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ImageUrl)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ImageUrl)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ImageUrl)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ImageUrl)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Favorite)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Favorite)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Favorite)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Favorite)
-        </dd>
+        </dl>
+    </div>*@
 
-    </dl>
+<div class="container-fluid">
+    <p>
+        @Html.ActionLink("Edit", "ProjectEdit", new { id = Model.ID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Edit", "ProjectEdit", new { id = Model.ID }) |
+
+<div class="container-fluid" id="blog-post">
+
+    <div class="jumbotron">
+        <h1>@Model.Title</h1>
+
+        <p>@Model.Intro</p>
+    </div>
+
+    <div id="blog-body">
+        @bodyHtml
+    </div>
+</div>
+
+<div class="container-fluid">
+    <br />
     @Html.ActionLink("Back to List", "Index")
-</p>
+</div>
+
