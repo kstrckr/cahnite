@@ -21,11 +21,31 @@
 
 <h2>@ViewBag.header @Model.Title</h2>
 
+@if (Model.Publish == false)
+{
+    <h4 class="text-danger">
+        <em>
+            <h4>THIS POST IS UNPUBLISEHD</h4>
+        </em>
+    </h4>
+}
+
+@if (ViewBag.edit == true)
+{
+    <p>
+        Created On: @Html.DisplayFor(p => p.CreatedOn)
+    </p>
+    <p>
+        Edited On: @Html.DisplayFor(p => p.EditedOn)
+    </p>
+}
+
+
 @if (ViewBag.edit == true)
 {
     using (Html.BeginForm("ProjectDelete", "Projects"))
     {
-        <div class="form-horizontal text-right">
+        <div class="form-horizontal text-left">
             @Html.AntiForgeryToken()
             @Html.HiddenFor(model => model.ID)
             <button type="submit" class="btn btn-danger">Delete</button>
@@ -87,7 +107,7 @@
                 </div>
             </div>
 
-            @if (ViewBag.edit == true && Model.Publish == true)
+            @if (ViewBag.edit == true)
             {
                 <div class="form-group">
                     @Html.LabelFor(model => model.RePublish, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -123,18 +143,8 @@
 }
 
 
-
-
-
-<script>
-    window.onload = function () {
-        $("#projectForm").validate();
-    }
-</script>
-
-
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Cancel/Back to List", "Index")
 </div>
 
 

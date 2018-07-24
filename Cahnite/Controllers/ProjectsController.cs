@@ -29,7 +29,7 @@ namespace Cahnite.Controllers
 
             //};
 
-                IQueryable<Project> publishedProjectList = db.Projects.Where(p => p.Publish == true);
+                IQueryable<Project> publishedProjectList = db.Projects.Where(p => p.Publish == true).OrderByDescending(p => p.CreatedOn);
 
                 ProjectListViewModel projectList = new ProjectListViewModel
                 {
@@ -135,7 +135,10 @@ namespace Cahnite.Controllers
                         ImageUrl = project.ImageUrl,
                         BodyHtml = project.BodyHtml,
                         Favorite = project.Favorite,
-                        Publish = project.Publish
+                        Publish = project.Publish,
+                        CreatedOn = project.CreatedOn,
+                        EditedOn = project.EditedOn
+
                     };
 
                     return View("ProjectCreateEdit", projectViewModel);
