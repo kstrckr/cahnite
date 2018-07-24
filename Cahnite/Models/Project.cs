@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Cahnite.Models
 {
@@ -16,6 +17,12 @@ namespace Cahnite.Models
         public string ImageUrl { get; set; }
         [Required]
         public bool Favorite { get; set; }
+        [Required]
+        public bool Publish { get; set; } 
+        [Required]
+        public DateTime CreatedOn { get; set; } 
+        [Required]
+        public DateTime EditedOn { get; set; }
     }
 
 }

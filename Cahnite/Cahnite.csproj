@@ -193,6 +193,18 @@
     <Compile Include="Migrations\201807181952542_added required to str cols.Designer.cs">
       <DependentUpon>201807181952542_added required to str cols.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807241508101_added datetime fo cretedon.cs" />
+    <Compile Include="Migrations\201807241508101_added datetime fo cretedon.Designer.cs">
+      <DependentUpon>201807241508101_added datetime fo cretedon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807241524599_added editedOn nullable.cs" />
+    <Compile Include="Migrations\201807241524599_added editedOn nullable.Designer.cs">
+      <DependentUpon>201807241524599_added editedOn nullable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807241607324_addedpublshed .cs" />
+    <Compile Include="Migrations\201807241607324_addedpublshed .Designer.cs">
+      <DependentUpon>201807241607324_addedpublshed .cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Project.cs" />
     <Compile Include="Models\ProjectListViewModel.cs" />
@@ -257,6 +269,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807181952542_added required to str cols.resx">
       <DependentUpon>201807181952542_added required to str cols.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807241508101_added datetime fo cretedon.resx">
+      <DependentUpon>201807241508101_added datetime fo cretedon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807241524599_added editedOn nullable.resx">
+      <DependentUpon>201807241524599_added editedOn nullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807241607324_addedpublshed .resx">
+      <DependentUpon>201807241607324_addedpublshed .cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

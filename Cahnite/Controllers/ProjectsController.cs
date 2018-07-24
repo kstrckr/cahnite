@@ -1,4 +1,6 @@
 ﻿
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
@@ -14,10 +16,24 @@ namespace Cahnite.Controllers
             {
                 using (CahniteContext db = new CahniteContext())
                 {
-                    // Creats the ListView of ProjectView models
+                // Creats the ListView of ProjectView models
+                //ProjectListViewModel projectList = new ProjectListViewModel
+                //{
+                //    Projects = db.Projects.Select(p => new ProjectViewModel
+                //    {
+                //        ID = p.ID,
+                //        Title = p.Title,
+                //        Intro = p.Intro,
+                //        ImageUrl = p.ImageUrl
+                //    }).ToList()
+
+                //};
+
+                    IQueryable<Project> publishedProjectList = db.Projects.Where(p => p.Publish == true);
+
                     ProjectListViewModel projectList = new ProjectListViewModel
                     {
-                        Projects = db.Projects.Select(p => new ProjectViewModel
+                        Projects = publishedProjectList.Select(p => new ProjectViewModel
                         {
                             ID = p.ID,
                             Title = p.Title,
@@ -25,6 +41,7 @@ namespace Cahnite.Controllers
                             ImageUrl = p.ImageUrl
                         }).ToList()
                     };
+
                     return View(projectList);
                 }
                 
@@ -134,7 +151,9 @@ namespace Cahnite.Controllers
 
                 if (projectViewModel.ID <= 0)
                 {
-                    project = new Project();                    
+                    project = new Project();
+                    project.CreatedOn = DateTime.Now;
+                    project.EditedOn = DateTime.Now;
                 }
                 else
                 {
@@ -144,12 +163,17 @@ namespace Cahnite.Controllers
 
                 if (project != null)
                 {
-
                     project.Title = projectViewModel.Title;
                     project.Intro = projectViewModel.Intro;
                     project.BodyHtml = projectViewModel.BodyHtml;
                     project.ImageUrl = projectViewModel.ImageUrl;
                     project.Favorite = projectViewModel.Favorite;
+                    project.EditedOn = DateTime.Now;
+
+                    if (projectViewModel.Republish)
+                    {
+                        project.CreatedOn = DateTime.Now;
+                    }
 
                     if (ModelState.IsValid)
                     {
