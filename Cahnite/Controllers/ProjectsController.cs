@@ -52,11 +52,11 @@ namespace Cahnite.Controllers
             using (CahniteContext db = new CahniteContext())
             {
 
-                IQueryable<Project> publishedProjectList = db.Projects.Where(p => p.Publish == false);
+                IQueryable<Project> publishedProjects = db.Projects.Where(p => p.Publish == false);
 
                 ProjectListViewModel projectList = new ProjectListViewModel
                 {
-                    Projects = publishedProjectList.Select(p => new ProjectViewModel
+                    Projects = publishedProjects.Select(p => new ProjectViewModel
                     {
                         ID = p.ID,
                         Title = p.Title,

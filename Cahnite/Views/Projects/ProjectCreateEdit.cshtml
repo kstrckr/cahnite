@@ -8,14 +8,12 @@
     {
         ViewBag.Title = "Create";
         ViewBag.header = "Create";
-        ViewBag.edit = false;
         
     }
     else
     {
         ViewBag.Title = "Edit";
         ViewBag.header = "Edit/Delete";
-        ViewBag.edit = true;
     }
 }
 
@@ -30,7 +28,8 @@
     </h4>
 }
 
-@if (ViewBag.edit == true)
+
+@if (Model.ID != 0)
 {
     <p>
         Created On: @Html.DisplayFor(p => p.CreatedOn)
@@ -41,7 +40,7 @@
 }
 
 
-@if (ViewBag.edit == true)
+@if (Model.ID != 0)
 {
     using (Html.BeginForm("ProjectDelete", "Projects"))
     {
@@ -107,7 +106,7 @@
                 </div>
             </div>
 
-            @if (ViewBag.edit == true)
+            @if (Model.ID != 0)
             {
                 <div class="form-group">
                     @Html.LabelFor(model => model.RePublish, htmlAttributes: new { @class = "control-label col-md-2" })

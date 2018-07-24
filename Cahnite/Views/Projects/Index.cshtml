@@ -12,10 +12,23 @@
 
 </div>
 <hr />
-<div class="new-button text-center">
-    <a href="@Url.Action("ProjectCreate", "Projects")">Create New Project</a>
-     | 
-    <a href="@Url.Action("Unpublished", "Projects")">Unpublished Projects</a>
+<div class="container-fluid center-block">
+    <div class="col-sm-offset-2 col-sm-4 text-center">
+        <a href="@Url.Action("ProjectCreate", "Projects")">
+            <p>
+                Create New Project
+            </p>
+        </a>
+    </div>
+    
+    <div class="col-sm-4 text-center">
+        <a href="@Url.Action("Unpublished", "Projects")">
+            <p>
+                Unpublished Projects
+            </p>
+        </a>
+    </div>
+    
 </div>
 <hr />
 
