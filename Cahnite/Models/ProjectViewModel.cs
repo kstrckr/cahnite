@@ -25,7 +25,7 @@ namespace Cahnite.Models
         public bool Favorite { get; set; }
 
         [Required]
-        [Display(Name = "UpdatedCreatedOn")]
+        [Display(Name = "Update CreatedOn")]
         public bool RePublish { get; set; }
 
         [Required]
