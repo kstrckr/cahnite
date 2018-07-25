@@ -40,7 +40,10 @@ namespace Cahnite.Controllers
                         Intro = p.Intro,
                         ImageUrl = p.ImageUrl
                     }).ToList()
+                                        
                 };
+
+                projectList.TotalProjects = projectList.Projects.Count;
 
                 return View(projectList);
             }
@@ -64,6 +67,8 @@ namespace Cahnite.Controllers
                         ImageUrl = p.ImageUrl
                     }).ToList()
                 };
+
+                projectList.TotalProjects = projectList.Projects.Count;
 
                 return View(projectList);
             }

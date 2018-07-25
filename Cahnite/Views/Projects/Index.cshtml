@@ -20,7 +20,7 @@
             </p>
         </a>
     </div>
-    
+
     <div class="col-sm-4 text-center">
         <a href="@Url.Action("Unpublished", "Projects")">
             <p>
@@ -28,13 +28,13 @@
             </p>
         </a>
     </div>
-    
+
 </div>
 <hr />
 
-<div class="container-fluid">
 
-    @foreach (var project in Model.Projects)
+
+@*@foreach (var project in Model.Projects)
     {
         <div class="col-sm-4">
             <a href="@Url.Action("ProjectDetail", "Projects", new { ID = project.ID })">
@@ -47,8 +47,40 @@
             </a>
             <p class="center-block text-center">@project.Intro</p>
         </div>
+    }*@
+
+@for (int i = 0; i <= Model.TotalProjects / 3; i++)
+{
+    int calcFactor = i * 3;
+
+    <div class="row">
+        @for (int j = 0; j < 3; j++)
+        {
+            int index = j + calcFactor;
+
+            if (index < Model.TotalProjects)
+            {
+                <div class="col-sm-4">
+                    <a href="@Url.Action("ProjectDetail", "Projects", new { ID = Model.Projects[index].ID })">
+                        <div class="text-center">
+                            <p>@Model.Projects[index].Title</p>
+                            <div class="text-center">
+                                <img class="img-responsive center-block" src="@Model.Projects[index].ImageUrl" alt="testing-placeholder" />
+                            </div>
+                        </div>
+                    </a>
+                    <p class="center-block text-center">@Model.Projects[index].Intro</p>
+                </div>
+            }
+            else
+            {
+                break;
+            }
+
     }
-</div>
+    </div>
+}
+
 
 
 
