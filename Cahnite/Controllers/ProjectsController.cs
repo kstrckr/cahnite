@@ -36,6 +36,7 @@ namespace Cahnite.Controllers
                     Projects = publishedProjectList.Select(p => new ProjectViewModel
                     {
                         ID = p.ID,
+                        Url = p.Url,
                         Title = p.Title,
                         Intro = p.Intro,
                         ImageUrl = p.ImageUrl
@@ -62,6 +63,7 @@ namespace Cahnite.Controllers
                     Projects = publishedProjects.Select(p => new ProjectViewModel
                     {
                         ID = p.ID,
+                        Url = p.Url,
                         Title = p.Title,
                         Intro = p.Intro,
                         ImageUrl = p.ImageUrl
@@ -76,22 +78,26 @@ namespace Cahnite.Controllers
 
 
     //  GET: Project Detail
-        public ActionResult ProjectDetail(int? id)
+        public ActionResult ProjectDetail(string project_url)
         {
             using (CahniteContext db = new CahniteContext())
             {
-                if (id == null)
+                if (project_url == null)
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
 
-                Project project = db.Projects.Find(id);
+                Project project = db.Projects
+                    .Where(p => p.Url == project_url)
+                    .SingleOrDefault();
+
 
                 if (project != null)
                 {
                     ProjectViewModel projectViewModel = new ProjectViewModel
                     {
                         ID = project.ID,
+                        Url = project.Url,
                         Title = project.Title,
                         Intro = project.Intro,
                         ImageUrl = project.ImageUrl,
@@ -198,6 +204,7 @@ namespace Cahnite.Controllers
                 if (project != null)
                 {
                     project.Title = projectViewModel.Title;
+                    
                     project.Intro = projectViewModel.Intro;
                     project.BodyHtml = projectViewModel.BodyHtml;
                     project.ImageUrl = projectViewModel.ImageUrl;
@@ -212,6 +219,8 @@ namespace Cahnite.Controllers
 
                     if (ModelState.IsValid)
                     {
+                        project.Url = projectViewModel.Title.Replace(" ", "_");
+
                         if (project.ID != 0)
                         {
 
@@ -226,6 +235,9 @@ namespace Cahnite.Controllers
 
                         return RedirectToAction("Index");
                     }
+
+                    projectViewModel.CreatedOn = project.CreatedOn;
+                    projectViewModel.EditedOn = project.EditedOn;
 
                     return View(projectViewModel);
                         

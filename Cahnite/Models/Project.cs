@@ -7,6 +7,8 @@ namespace Cahnite.Models
     {
         public int ID { get; set; }
         [Required]
+        public string Url { get; set; }
+        [Required]
         public string Title { get; set; }
         [Required]
         public string Intro { get; set; }

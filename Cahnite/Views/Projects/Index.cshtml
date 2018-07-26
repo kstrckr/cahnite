@@ -61,7 +61,7 @@
             if (index < Model.TotalProjects)
             {
                 <div class="col-sm-4">
-                    <a href="@Url.Action("ProjectDetail", "Projects", new { ID = Model.Projects[index].ID })">
+                    <a href="@Url.Action("ProjectDetail", "Projects", new { project_url = Model.Projects[index].Url })">
                         <div class="text-center">
                             <p>@Model.Projects[index].Title</p>
                             <div class="text-center">

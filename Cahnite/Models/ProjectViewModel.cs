@@ -6,6 +6,8 @@ namespace Cahnite.Models
     public class ProjectViewModel
     {
         public int ID { get; set; }
+                
+        public string Url { get; set; }
 
         [Required]
         public string Title { get; set; }

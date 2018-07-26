@@ -15,8 +15,8 @@ namespace Cahnite
 
             routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Projects", action = "Index", id = UrlParameter.Optional }
+                url: "{controller}/{action}/{project_url}",
+                defaults: new { controller = "Projects", action = "Index", project_url = UrlParameter.Optional }
             );
         }
     }

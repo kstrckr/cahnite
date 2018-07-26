@@ -25,6 +25,7 @@ namespace Cahnite.Migrations
                 new Models.Project
                 {
                     Title = "Iowa State Liquor Sales Data Project",
+                    Url = "Iowa_State_Liquor_Sales_Data_Project",
                     Intro = "A Python data project using Jupyter Notebook, Pandas, and Bokeh",
                     BodyHtml = "<h1>Parsing, creating a database for, and analyzing 13 Million sales records</h1>",
                     ImageUrl = placeholderImgLink,
@@ -35,6 +36,7 @@ namespace Cahnite.Migrations
                 new Models.Project
                 {
                     Title = "Commageddon",
+                    Url = "Commageddon",
                     Intro = "File name validation script for Saks Photo Studio",
                     BodyHtml = "<b>Python project parsing CSVs to generate expected file names</b>",
                     ImageUrl = placeholderImgLink,
@@ -45,6 +47,7 @@ namespace Cahnite.Migrations
                 new Models.Project
                 {
                     Title = "MEAN Match Master",
+                    Url = "MEAN_Match_Master",
                     Intro = "A Matching Memory game with server side game logic and persistant high scores",
                     BodyHtml = "<b>A MEAN stack project</b>",
                     ImageUrl = placeholderImgLink,
@@ -55,6 +58,7 @@ namespace Cahnite.Migrations
                 new Models.Project
                 {
                     Title = "That DAM Bot",
+                    Url = "That_DAM_Bot",
                     Intro = "A Bulk download tool for the EvolPhin Digital Asset Management System",
                     BodyHtml = "<b>Managed and verified the downloading of 12 Terrabytes of photography assets.</b>",
                     ImageUrl = placeholderImgLink,

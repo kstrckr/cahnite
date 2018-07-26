@@ -205,6 +205,10 @@
     <Compile Include="Migrations\201807241607324_addedpublshed .Designer.cs">
       <DependentUpon>201807241607324_addedpublshed .cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807261644019_added url to Project model.cs" />
+    <Compile Include="Migrations\201807261644019_added url to Project model.Designer.cs">
+      <DependentUpon>201807261644019_added url to Project model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Project.cs" />
     <Compile Include="Models\ProjectListViewModel.cs" />
@@ -279,6 +283,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807241607324_addedpublshed .resx">
       <DependentUpon>201807241607324_addedpublshed .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807261644019_added url to Project model.resx">
+      <DependentUpon>201807261644019_added url to Project model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
