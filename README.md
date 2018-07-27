@@ -25,3 +25,5 @@ You'll see an alert if you're editing a currently unpublished project.
 
 1. There's no confirmation for the delete button, you click it and it's gone, that should be fixed.
 2. Add user authentication so it can be published live.
+3. There isn't currently a validation check on create/edit to ensure that the Title doesn't already exist in the database of projects
+this would lead to a InvalidOperationException when trying to see the detail view of project with a cuplicate title since SingleOrDefault is used to lookup the expected Model. This validation needs to be added.

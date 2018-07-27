@@ -5,6 +5,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@*header*@
+
 <div class="container-fluid text-center">
     <h1>Kurt Strecker</h1>
     <h2 class="gserif">Creating Solutions with Code</h2>
@@ -32,22 +34,8 @@
 </div>
 <hr />
 
+@*nested for loops that build rows and fill the rows with <= 3 columns*@
 
-
-@*@foreach (var project in Model.Projects)
-    {
-        <div class="col-sm-4">
-            <a href="@Url.Action("ProjectDetail", "Projects", new { ID = project.ID })">
-                <div class="text-center">
-                    <p>@project.Title</p>
-                    <div class="text-center">
-                        <img class="img-responsive center-block" src="@project.ImageUrl" alt="testing-placeholder" />
-                    </div>
-                </div>
-            </a>
-            <p class="center-block text-center">@project.Intro</p>
-        </div>
-    }*@
 <div class="container-fluid">
     @for (int i = 0; i <= Model.TotalProjects / 3; i++)
     {

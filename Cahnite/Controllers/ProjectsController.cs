@@ -1,6 +1,6 @@
 ﻿
 using System;
-using System.Collections.Generic;
+
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
@@ -16,19 +16,7 @@ namespace Cahnite.Controllers
         {
             using (CahniteContext db = new CahniteContext())
             {
-            // Creats the ListView of ProjectView models
-            //ProjectListViewModel projectList = new ProjectListViewModel
-            //{
-            //    Projects = db.Projects.Select(p => new ProjectViewModel
-            //    {
-            //        ID = p.ID,
-            //        Title = p.Title,
-            //        Intro = p.Intro,
-            //        ImageUrl = p.ImageUrl
-            //    }).ToList()
-
-            //};
-
+                // returns only published projects
                 IQueryable<Project> publishedProjectList = db.Projects.Where(p => p.Publish == true).OrderByDescending(p => p.CreatedOn);
 
                 ProjectListViewModel projectList = new ProjectListViewModel
@@ -51,11 +39,13 @@ namespace Cahnite.Controllers
                 
         }
 
+    // GET: Project List/Unpublished
+    // list of all created, but unpublished projects
         public ActionResult Unpublished()
         {
             using (CahniteContext db = new CahniteContext())
             {
-
+                // returns only unpublished projects
                 IQueryable<Project> publishedProjects = db.Projects.Where(p => p.Publish == false);
 
                 ProjectListViewModel projectList = new ProjectListViewModel
@@ -87,6 +77,7 @@ namespace Cahnite.Controllers
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
 
+                // returns the a single project based on the url parameter
                 Project project = db.Projects
                     .Where(p => p.Url == project_url)
                     .SingleOrDefault();
@@ -118,6 +109,7 @@ namespace Cahnite.Controllers
         {
             ProjectViewModel blankProject = new ProjectViewModel();
 
+            // defines the pre-filled values for the create view
             blankProject.Title = "New Project";
             blankProject.ImageUrl = "http://via.placeholder.com/350x350";
 
@@ -160,25 +152,9 @@ namespace Cahnite.Controllers
             }
         }
 
-        // POST: Project Edit Post
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult ProjectEdit([Bind(Include ="ID, Title, Intro, BodyHtml, ImageUrl, Favorite")] Project project)
-        //{
-        //    using (CahniteContext db = new CahniteContext())
-        //    {
-        //        if (ModelState.IsValid)
-        //        {
-        //            db.Entry(project).State = EntityState.Modified;
-        //            db.SaveChanges();
-        //            return RedirectToAction("Index");
-        //        }
-        //        return View(project);
-        //    }
-
-        //}
 
     // POST: Project Edit/Create - alternate version
+        // the post will either creat a new project if ID = 0, or update an existing project if ID exists
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult ProjectCreateEdit(ProjectViewModel projectViewModel)
@@ -187,6 +163,7 @@ namespace Cahnite.Controllers
             {
                 Project project;
 
+                // makes a new project if creating
                 if (projectViewModel.ID <= 0)
                 {
                     project = new Project
@@ -195,6 +172,7 @@ namespace Cahnite.Controllers
                         EditedOn = DateTime.Now
                     };
                 }
+                // otherwise assign an existing project to var project
                 else
                 {
                     project = db.Projects.Single(p => p.ID == projectViewModel.ID);
@@ -219,6 +197,7 @@ namespace Cahnite.Controllers
 
                     if (ModelState.IsValid)
                     {
+                        // auto-defines the url parameter used to access the detail view
                         project.Url = projectViewModel.Title.Replace(" ", "_");
 
                         if (project.ID != 0)
@@ -236,6 +215,9 @@ namespace Cahnite.Controllers
                         return RedirectToAction("Index");
                     }
 
+                    // these need defining before returing the ViewModel, otherwise the wrong dates are shown 
+                    // if there are validation errors and the ViewModel is returned to the edit view w/ warnings
+
                     projectViewModel.CreatedOn = project.CreatedOn;
                     projectViewModel.EditedOn = project.EditedOn;
 
@@ -247,6 +229,7 @@ namespace Cahnite.Controllers
             return new HttpNotFoundResult();
         }
 
+        // DELETE via Post request
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult ProjectDelete(ProjectViewModel projectViewModel)
@@ -262,8 +245,7 @@ namespace Cahnite.Controllers
 
                     return RedirectToAction("Index");
                 }
-
-
+                
                 return new HttpNotFoundResult();
             }
             
