@@ -12,10 +12,11 @@ You'll find yourself looking at a list of projects, under a header.
 Each project can be clicked to view details.
 Detail view contains the Edit link.
 Inside the edit view you can edit, delete or cancel.
+Created but unpublished projects have their own list view linked below the header, next to the Create link.
 
 There are 2 checkboxes in the edit view with extra functionality. 
 
-1. Republish to front of list will update that projects "created on" value so that it jumps back up to the front of the list view.
+1. Republish to front of list will update that project's "created on" value so that it jumps back up to the front of the list view.
 2. The Publish checkbox displays the project on the index page if checked, and if unchecked it will be moved to the unpublished projects list with
 the idea being that you can pre-build projects and publish them later, or un-publish while making edits. 
 You'll see an alert if you're editing a currently unpublished project.
