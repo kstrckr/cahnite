@@ -16,6 +16,11 @@ Inside the edit view you can edit, delete or cancel.
 There are 2 checkboxes in the edit view with extra functionality. 
 
 1. Republish to front of list will update that projects "created on" value so that it jumps back up to the front of the list view.
-2. The Publish checkbox displays the project on the index page if checked, and if unchecked it will be moved to the unpublished projects list
+2. The Publish checkbox displays the project on the index page if checked, and if unchecked it will be moved to the unpublished projects list with
 the idea being that you can pre-build projects and publish them later, or un-publish while making edits. 
 You'll see an alert if you're editing a currently unpublished project.
+
+### TODO:
+
+1. There's no confirmation for the delete button, you click it and it's gone, that should be fixed.
+2. Add user authentication so it can be published live.
