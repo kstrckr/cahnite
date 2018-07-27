@@ -48,3 +48,9 @@ textarea {
 .gserif {
     font-family: 'Playfair Display', serif;
 }
+
+.tile {
+    border-style: solid;
+    border-width: 0 0 1px 0;
+    border-color: black;
+}

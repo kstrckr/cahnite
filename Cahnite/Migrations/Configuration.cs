@@ -24,11 +24,11 @@ namespace Cahnite.Migrations
             context.Projects.AddOrUpdate(p => p.Title,
                 new Models.Project
                 {
-                    Title = "Iowa State Liquor Sales Data Project",
+                    Title = "Iowa Liquor Sales Data Project",
                     Url = "Iowa_State_Liquor_Sales_Data_Project",
                     Intro = "A Python data project using Jupyter Notebook, Pandas, and Bokeh",
-                    BodyHtml = "<h1>Parsing, creating a database for, and analyzing 13 Million sales records</h1>",
-                    ImageUrl = placeholderImgLink,
+                    BodyHtml = "<b>Parsing, creating a database for, and analyzing 13 Million sales records</b>",
+                    ImageUrl = "https://www.kurtstrecker.com/project_imgs/py_data_sqr_350.png",
                     Publish = true,
                     CreatedOn = DateTime.Now.Subtract(new TimeSpan(7, 0, 0, 0)),
                     EditedOn = DateTime.Now.Subtract(new TimeSpan(3, 0, 0, 0))
@@ -39,8 +39,8 @@ namespace Cahnite.Migrations
                     Url = "Commageddon",
                     Intro = "File name validation script for Saks Photo Studio",
                     BodyHtml = "<b>Python project parsing CSVs to generate expected file names</b>",
-                    ImageUrl = placeholderImgLink,
-                    Publish = true,
+                    ImageUrl = "https://www.kurtstrecker.com/project_imgs/commageddon_sqr_350.jpg",
+                    Publish = false,
                     CreatedOn = DateTime.Now.Subtract(new TimeSpan(6, 0, 0, 0)),
                     EditedOn = DateTime.Now.Subtract(new TimeSpan(4, 0, 0, 0))
                 },
@@ -50,7 +50,7 @@ namespace Cahnite.Migrations
                     Url = "MEAN_Match_Master",
                     Intro = "A Matching Memory game with server side game logic and persistant high scores",
                     BodyHtml = "<b>A MEAN stack project</b>",
-                    ImageUrl = placeholderImgLink,
+                    ImageUrl = "https://www.kurtstrecker.com/project_imgs/mm_sqr_350.png",
                     Publish = true,
                     CreatedOn = DateTime.Now.Subtract(new TimeSpan(5, 0, 0, 0)),
                     EditedOn = DateTime.Now.Subtract(new TimeSpan(2, 0, 0, 0))
@@ -61,7 +61,7 @@ namespace Cahnite.Migrations
                     Url = "That_DAM_Bot",
                     Intro = "A Bulk download tool for the EvolPhin Digital Asset Management System",
                     BodyHtml = "<b>Managed and verified the downloading of 12 Terrabytes of photography assets.</b>",
-                    ImageUrl = placeholderImgLink,
+                    ImageUrl = "https://www.kurtstrecker.com/project_imgs/dam_bot_sqr_350.jpg",
                     Publish = true,
                     CreatedOn = DateTime.Now.Subtract(new TimeSpan(4, 0, 0, 0)),
                     EditedOn = DateTime.Now.Subtract(new TimeSpan(1, 0, 0, 0))
