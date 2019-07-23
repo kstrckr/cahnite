@@ -1,5 +1,5 @@
 # Dev Portfolio Site C#/.NET
-![demo screenshot](https://www.kurtstrecker.com/project_imgs/demo_exmpale_full.PNG)
+
 ### Instructions
 1. Clone the repo
 2. Open/Load ./Cahnite.sln
